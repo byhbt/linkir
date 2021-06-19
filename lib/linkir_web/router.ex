@@ -71,6 +71,9 @@ defmodule LinkirWeb.Router do
     pipe_through [:browser]
 
     get "/", PageController, :index
+
+    resources "/links", LinkController
+
     delete "/users/log_out", UserSessionController, :delete
     get "/users/confirm", UserConfirmationController, :new
     post "/users/confirm", UserConfirmationController, :create
