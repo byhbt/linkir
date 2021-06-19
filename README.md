@@ -1,4 +1,4 @@
-# Foobar
+# Linkir
 
 - [ ] Sample README structure
 - [ ] License ([https://choosealicense.com](https://choosealicense.com))
@@ -10,8 +10,7 @@
 ## Getting Started
 
 ### Features
-- Awesome feature A.
-- Awesome feature B.
+- Create Short Link
 ### Prerequisites
 
 * React 16.8.0
@@ -19,17 +18,14 @@
 
 ### Installation
 
-```sh
-npm install easybase-react
-```
+To start your Phoenix server:
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+  * Install dependencies with `mix deps.get`
+  * Create and migrate your database with `mix ecto.setup`
+  * Install Node.js dependencies with `npm install` inside the `assets` directory
+  * Start Phoenix endpoint with `mix phx.server`
 
-```bash
-pip install foobar
-
-```
-
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## Documentation
 
