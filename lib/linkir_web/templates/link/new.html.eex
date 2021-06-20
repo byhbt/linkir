@@ -1,5 +1,5 @@
-<h1 class="text-6xl font-normal leading-normal mt-0 mb-2">New Link</h1>
+<h1 class="page-title">New Link</h1>
 
 <%= render "form.html", Map.put(assigns, :action, Routes.link_path(@conn, :create)) %>
 
-<span><%= link "Back", to: Routes.link_path(@conn, :index) %></span>
+<span><%= link "Back", to: Routes.link_path(@conn, :index), class: "btn btn-secondary" %></span>

@@ -1,5 +1,7 @@
-<h1>Edit Link</h1>
+<h1 class="page-title">Edit Link</h1>
 
 <%= render "form.html", Map.put(assigns, :action, Routes.link_path(@conn, :update, @link)) %>
 
-<span><%= link "Back", to: Routes.link_path(@conn, :index) %></span>
+<div>
+  <%= link "Back", to: Routes.link_path(@conn, :index), class: "btn btn-secondary" %>
+</div>
