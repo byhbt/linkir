@@ -19,7 +19,9 @@ defmodule Linkir.Links do
 
   """
   def list_links do
-    Repo.all(Link)
+    Link
+    |> order_by(desc: :inserted_at)
+    |> Repo.all
   end
 
 
@@ -35,6 +37,7 @@ defmodule Linkir.Links do
   def list_links_by_user(user) do
     Link
     |> where([l], l.user_id == ^user.id)
+    |> order_by(desc: :inserted_at)
     |> Repo.all()
   end
 
@@ -53,6 +56,26 @@ defmodule Linkir.Links do
 
   """
   def get_link!(id), do: Repo.get!(Link, id)
+
+  @doc """
+  Gets a single link.
+
+  Raises `Ecto.NoResultsError` if the Link does not exist.
+
+  ## Examples
+
+      iex> get_link_by_uri!(123)
+      %Link{}
+
+      iex> get_link_by_uri!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_link_by_uri!(uri) do
+    Link
+    |> where(short_url: ^uri)
+    |> Repo.one
+  end
 
   @doc """
   Creates a link.

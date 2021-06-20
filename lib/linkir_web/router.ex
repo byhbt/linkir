@@ -72,9 +72,11 @@ defmodule LinkirWeb.Router do
 
     # get "/", PageController, :index
 
-    resources "/", LinkController
+    # resources "/", LinkController
 
-    # resources "/links", LinkController
+    get "/:short_uri", ShortUrlController, :show
+
+    resources "/links", LinkController
     
     delete "/users/log_out", UserSessionController, :delete
     get "/users/confirm", UserConfirmationController, :new

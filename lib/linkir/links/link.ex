@@ -13,13 +13,13 @@ defmodule Linkir.Links.Link do
     timestamps()
   end
 
-   @doc false
+  @doc false
   def changeset(link, attrs) do
     link
     |> cast(attrs, [:full_url, :short_url, :content])
     |> validate_required([:full_url, :short_url, :content])
   end
-
+  
   @doc false
   def create_changeset(link, user, attrs) do
     link
