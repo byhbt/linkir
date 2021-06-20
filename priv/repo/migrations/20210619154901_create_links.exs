@@ -5,7 +5,7 @@ defmodule Linkir.Repo.Migrations.CreateLinks do
     create table(:links) do
       add :full_url, :string
       add :short_url, :string
-      add :click_count, :integer
+      add :click_count, :integer, default: 0
       add :content, :text
       add :user_id, references(:users, on_delete: :nothing)
 

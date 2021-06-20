@@ -4,9 +4,10 @@ defmodule Linkir.Links do
   """
 
   import Ecto.Query, warn: false
-  alias Linkir.Repo
 
+  alias Linkir.Repo
   alias Linkir.Links.Link
+  alias Linkir.Accounts.User
 
   @doc """
   Returns the list of links.
@@ -19,6 +20,22 @@ defmodule Linkir.Links do
   """
   def list_links do
     Repo.all(Link)
+  end
+
+
+  @doc """
+  Returns the list of links of specific user.
+
+  ## Examples
+
+      iex> list_links_by_user(user)
+      [%Link{}, ...]
+
+  """
+  def list_links_by_user(user) do
+    Link
+    |> where([l], l.user_id == ^user.id)
+    |> Repo.all()
   end
 
   @doc """
@@ -49,9 +66,9 @@ defmodule Linkir.Links do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_link(attrs \\ %{}) do
+  def create_link(%User{} = user, attrs \\ %{}) do
     %Link{}
-    |> Link.changeset(attrs)
+    |> Link.create_changeset(user, attrs)
     |> Repo.insert()
   end
 

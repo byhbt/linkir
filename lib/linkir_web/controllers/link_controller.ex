@@ -5,7 +5,8 @@ defmodule LinkirWeb.LinkController do
   alias Linkir.Links.Link
 
   def index(conn, _params) do
-    links = Links.list_links()
+    user = conn.assigns.current_user
+    links = Links.list_links_by_user(user)
     render(conn, "index.html", links: links)
   end
 
@@ -15,7 +16,9 @@ defmodule LinkirWeb.LinkController do
   end
 
   def create(conn, %{"link" => link_params}) do
-    case Links.create_link(link_params) do
+    user = conn.assigns.current_user
+
+    case Links.create_link(user, link_params) do
       {:ok, link} ->
         conn
         |> put_flash(:info, "Link created successfully.")

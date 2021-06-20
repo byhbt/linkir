@@ -7,23 +7,19 @@
   <% end %>
 
   <%= label f, :full_url %>
-  <%= text_input f, :full_url, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  <%= text_input f, :full_url, class: "form-control" %>
   <%= error_tag f, :full_url %>
 
   <%= label f, :short_url %>
-  <%= text_input f, :short_url, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  <%= text_input f, :short_url, class: "form-control" %>
   <%= error_tag f, :short_url %>
 
-  <%= label f, :click_count %>
-  <%= number_input f, :click_count, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
-  <%= error_tag f, :click_count %>
-
   <%= label f, :content %>
-  <%= textarea f, :content, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  <%= textarea f, :content, class: "form-control" %>
   <%= error_tag f, :content %>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>
 </div>

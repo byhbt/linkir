@@ -7,7 +7,7 @@ defmodule LinkirWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {LinkirWeb.LayoutView, :root}
+    # plug :put_root_layout, {LinkirWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug :fetch_current_user
@@ -70,10 +70,12 @@ defmodule LinkirWeb.Router do
   scope "/", LinkirWeb do
     pipe_through [:browser]
 
-    get "/", PageController, :index
+    # get "/", PageController, :index
 
-    resources "/links", LinkController
+    resources "/", LinkController
 
+    # resources "/links", LinkController
+    
     delete "/users/log_out", UserSessionController, :delete
     get "/users/confirm", UserConfirmationController, :new
     post "/users/confirm", UserConfirmationController, :create
