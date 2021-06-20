@@ -13,5 +13,7 @@ defmodule Linkir.Repo.Migrations.CreateLinks do
     end
 
     create index(:links, [:user_id])
+    create unique_index(:links, [:short_url], name: :links_short_url_index)
+    create unique_index(:links, [:full_url], name: :links_full_url_index)
   end
 end
