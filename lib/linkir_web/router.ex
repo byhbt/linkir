@@ -70,14 +70,14 @@ defmodule LinkirWeb.Router do
   scope "/", LinkirWeb do
     pipe_through [:browser]
 
-    # get "/", PageController, :index
+    get "/", PageController, :index
 
     # resources "/", LinkController
 
+    resources "/links", LinkController
+
     get "/:short_uri", ShortUrlController, :show
 
-    resources "/links", LinkController
-    
     delete "/users/log_out", UserSessionController, :delete
     get "/users/confirm", UserConfirmationController, :new
     post "/users/confirm", UserConfirmationController, :create
