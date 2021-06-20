@@ -21,9 +21,8 @@ defmodule Linkir.Links do
   def list_links do
     Link
     |> order_by(desc: :inserted_at)
-    |> Repo.all
+    |> Repo.all()
   end
-
 
   @doc """
   Returns the list of links of specific user.
@@ -74,7 +73,7 @@ defmodule Linkir.Links do
   def get_link_by_uri!(uri) do
     Link
     |> where(short_url: ^uri)
-    |> Repo.one
+    |> Repo.one()
   end
 
   @doc """

@@ -36,7 +36,7 @@ config :linkir, Oban,
     Oban.Plugins.Pruner,
     {Oban.Plugins.Cron,
      crontab: [
-      #  {"0 8 * * *", Zerg.Workers.ExampleWorker},
+       #  {"0 8 * * *", Zerg.Workers.ExampleWorker},
      ]}
   ]
 

@@ -6,8 +6,18 @@ defmodule Linkir.LinksTest do
   describe "links" do
     alias Linkir.Links.Link
 
-    @valid_attrs %{click_count: 42, content: "some content", full_url: "some full_url", short_url: "some short_url"}
-    @update_attrs %{click_count: 43, content: "some updated content", full_url: "some updated full_url", short_url: "some updated short_url"}
+    @valid_attrs %{
+      click_count: 42,
+      content: "some content",
+      full_url: "some full_url",
+      short_url: "some short_url"
+    }
+    @update_attrs %{
+      click_count: 43,
+      content: "some updated content",
+      full_url: "some updated full_url",
+      short_url: "some updated short_url"
+    }
     @invalid_attrs %{click_count: nil, content: nil, full_url: nil, short_url: nil}
 
     def link_fixture(attrs \\ %{}) do

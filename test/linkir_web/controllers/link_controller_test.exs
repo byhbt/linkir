@@ -3,8 +3,18 @@ defmodule LinkirWeb.LinkControllerTest do
 
   alias Linkir.Links
 
-  @create_attrs %{click_count: 42, content: "some content", full_url: "some full_url", short_url: "some short_url"}
-  @update_attrs %{click_count: 43, content: "some updated content", full_url: "some updated full_url", short_url: "some updated short_url"}
+  @create_attrs %{
+    click_count: 42,
+    content: "some content",
+    full_url: "some full_url",
+    short_url: "some short_url"
+  }
+  @update_attrs %{
+    click_count: 43,
+    content: "some updated content",
+    full_url: "some updated full_url",
+    short_url: "some updated short_url"
+  }
   @invalid_attrs %{click_count: nil, content: nil, full_url: nil, short_url: nil}
 
   def fixture(:link) do
@@ -75,6 +85,7 @@ defmodule LinkirWeb.LinkControllerTest do
     test "deletes chosen link", %{conn: conn, link: link} do
       conn = delete(conn, Routes.link_path(conn, :delete, link))
       assert redirected_to(conn) == Routes.link_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get(conn, Routes.link_path(conn, :show, link))
       end

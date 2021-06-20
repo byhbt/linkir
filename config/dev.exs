@@ -76,5 +76,4 @@ config :phoenix, :stacktrace_depth, 20
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
 
-config :linkir, Linkir.Mailer,
-  adapter: Bamboo.LocalAdapter
+config :linkir, Linkir.Mailer, adapter: Bamboo.LocalAdapter

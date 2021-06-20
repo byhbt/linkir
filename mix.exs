@@ -1,5 +1,6 @@
 defmodule Linkir.MixProject do
   use Mix.Project
+
   def project do
     [
       app: :linkir,
@@ -12,6 +13,7 @@ defmodule Linkir.MixProject do
       deps: deps()
     ]
   end
+
   # Configuration for the OTP application.
   #
   # Type `mix help compile.app` for more information.
@@ -21,6 +23,7 @@ defmodule Linkir.MixProject do
       extra_applications: [:logger, :runtime_tools]
     ]
   end
+
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
@@ -54,14 +57,14 @@ defmodule Linkir.MixProject do
       {:bamboo, "~> 1.5"},
       {:premailex, "~> 0.3.0"},
       {:floki, ">= 0.0.0"},
-
       {:phx_gen_auth, "~> 0.6", only: [:dev], runtime: false},
       {:bcrypt_elixir, "~> 2.0"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.8", only: :dev},
-      {:ecto_psql_extras, "~> 0.2"},
+      {:ecto_psql_extras, "~> 0.2"}
     ]
   end
+
   # Aliases are shortcuts or tasks specific to the current project.
   # For example, to install project dependencies and perform other setup tasks, run:
   #

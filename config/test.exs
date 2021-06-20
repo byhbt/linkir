@@ -24,8 +24,7 @@ config :linkir, LinkirWeb.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-config :linkir, Linkir.Mailer,
-  adapter: Bamboo.TestAdapter
+config :linkir, Linkir.Mailer, adapter: Bamboo.TestAdapter
 
 # Dont run oban in tests
 config :linkir, Oban, queues: false, plugins: false

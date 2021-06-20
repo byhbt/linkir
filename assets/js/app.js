@@ -12,4 +12,4 @@ import '../css/app.scss'
 //     import {Socket} from "phoenix"
 //     import socket from "./socket"
 //
-import topbar from 'topbar'
+import 'phoenix_html'

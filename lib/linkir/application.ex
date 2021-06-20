@@ -17,7 +17,7 @@ defmodule Linkir.Application do
       LinkirWeb.Endpoint,
       # Start a worker by calling: Linkir.Worker.start_link(arg)
       # {Linkir.Worker, arg}
-      {Oban, oban_config()},
+      {Oban, oban_config()}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -33,7 +33,8 @@ defmodule Linkir.Application do
     :ok
   end
 
-  defp oban_config do # Add this line
+  # Add this line
+  defp oban_config do
     Application.fetch_env!(:linkir, Oban)
   end
 end

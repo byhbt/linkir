@@ -9,7 +9,9 @@ defmodule LinkirWeb.ShortUrlController do
 
   def show(conn, %{"short_uri" => short_uri}) do
     case Links.get_link_by_uri!(short_uri) do
-      nil -> IO.puts "Not found"
+      nil ->
+        IO.puts("Not found")
+
       %Link{full_url: full_url} ->
         conn
         |> put_status(301)
