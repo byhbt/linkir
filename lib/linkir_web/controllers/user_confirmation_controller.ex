@@ -1,4 +1,8 @@
 defmodule LinkirWeb.UserConfirmationController do
+  @moduledoc """
+  The UserConfirmation controller.
+  """
+
   use LinkirWeb, :controller
 
   alias Linkir.Accounts

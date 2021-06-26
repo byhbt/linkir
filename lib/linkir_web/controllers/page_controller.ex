@@ -1,9 +1,11 @@
 defmodule LinkirWeb.PageController do
-  use LinkirWeb, :controller
+  @moduledoc """
+  The Page controller.
 
-  alias Linkir.Accounts
-  alias Linkir.Accounts.User
-  alias LinkirWeb.UserAuth
+  For handling render some static pages of the project.
+  """
+
+  use LinkirWeb, :controller
 
   def index(conn, _params) do
     render(conn, "index.html")

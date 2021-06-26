@@ -5,9 +5,9 @@ defmodule Linkir.Links do
 
   import Ecto.Query, warn: false
 
-  alias Linkir.Repo
-  alias Linkir.Links.Link
   alias Linkir.Accounts.User
+  alias Linkir.Links.Link
+  alias Linkir.Repo
 
   @doc """
   Returns the list of links.

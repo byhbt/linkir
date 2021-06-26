@@ -1,4 +1,6 @@
 defmodule Linkir.Workers.ExampleWorker do
+  @moduledoc false
+
   use Oban.Worker
 
   @impl Oban.Worker

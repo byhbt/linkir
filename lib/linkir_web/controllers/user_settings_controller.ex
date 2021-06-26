@@ -1,4 +1,8 @@
 defmodule LinkirWeb.UserSettingsController do
+  @moduledoc """
+  The UserSettings controller.
+  """
+
   use LinkirWeb, :controller
 
   alias Linkir.Accounts

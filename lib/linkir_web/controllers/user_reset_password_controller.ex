@@ -1,4 +1,8 @@
 defmodule LinkirWeb.UserResetPasswordController do
+  @moduledoc """
+  The UserResetPassword controller.
+  """
+
   use LinkirWeb, :controller
 
   alias Linkir.Accounts

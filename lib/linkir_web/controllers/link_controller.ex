@@ -1,4 +1,10 @@
 defmodule LinkirWeb.LinkController do
+  @moduledoc """
+  The Link controller.
+
+  Handling CRUD links.
+  """
+
   use LinkirWeb, :controller
 
   alias Linkir.Links

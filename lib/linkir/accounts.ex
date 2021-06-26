@@ -4,8 +4,9 @@ defmodule Linkir.Accounts do
   """
 
   import Ecto.Query, warn: false
+
+  alias Linkir.Accounts.{User, UserNotifier, UserToken}
   alias Linkir.Repo
-  alias Linkir.Accounts.{User, UserToken, UserNotifier}
 
   ## Database getters
 

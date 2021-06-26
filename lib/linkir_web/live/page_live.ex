@@ -1,4 +1,6 @@
 defmodule LinkirWeb.PageLive do
+  @moduledoc false
+
   use LinkirWeb, :live_view
 
   @impl true

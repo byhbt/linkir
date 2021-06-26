@@ -1,5 +1,8 @@
 defmodule Linkir.Emails do
+  @moduledoc false
+
   import Bamboo.Email
+
   use Bamboo.Phoenix, view: LinkirWeb.EmailView
 
   @from "test@example.com"

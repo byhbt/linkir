@@ -16,6 +16,8 @@ defmodule Linkir.DataCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       alias Linkir.Repo
@@ -28,10 +30,10 @@ defmodule Linkir.DataCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Linkir.Repo)
+    :ok = Sandbox.checkout(Linkir.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Linkir.Repo, {:shared, self()})
+      Sandbox.mode(Linkir.Repo, {:shared, self()})
     end
 
     :ok

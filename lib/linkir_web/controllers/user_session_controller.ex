@@ -1,4 +1,8 @@
 defmodule LinkirWeb.UserSessionController do
+  @moduledoc """
+  The UserSession controller.
+  """
+
   use LinkirWeb, :controller
 
   alias Linkir.Accounts

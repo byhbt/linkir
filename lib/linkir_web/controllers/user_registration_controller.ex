@@ -1,4 +1,8 @@
 defmodule LinkirWeb.UserRegistrationController do
+  @moduledoc """
+  The UserRegistration controller.
+  """
+
   use LinkirWeb, :controller
 
   alias Linkir.Accounts

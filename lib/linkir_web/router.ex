@@ -1,4 +1,6 @@
 defmodule LinkirWeb.Router do
+  @moduledoc false
+
   use LinkirWeb, :router
 
   import LinkirWeb.UserAuth
