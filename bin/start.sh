@@ -1,5 +1,5 @@
 #!/bin/sh
 
-bin/kwtool eval "Kwtool.ReleaseTasks.migrate()"
+bin/linkir eval "Linkir.ReleaseTasks.migrate()"
 
-bin/kwtool start
+bin/linkir start
