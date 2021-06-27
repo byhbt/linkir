@@ -64,6 +64,8 @@ defmodule LinkirWeb.Router do
   scope "/", LinkirWeb do
     pipe_through [:browser, :require_authenticated_user]
 
+    resources "/links", LinkController
+
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
     get "/users/settings/confirm_email/:token", UserSettingsController, :confirm_email
@@ -73,10 +75,6 @@ defmodule LinkirWeb.Router do
     pipe_through [:browser]
 
     get "/", PageController, :index
-
-    # resources "/", LinkController
-
-    resources "/links", LinkController
 
     get "/:short_uri", ShortUrlController, :show
 
