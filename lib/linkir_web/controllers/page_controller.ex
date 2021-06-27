@@ -7,7 +7,5 @@ defmodule LinkirWeb.PageController do
 
   use LinkirWeb, :controller
 
-  def index(conn, _params) do
-    render(conn, "index.html")
-  end
+  def index(conn, _params), do: render(conn, "index.html")
 end

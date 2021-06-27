@@ -11,6 +11,7 @@ defmodule LinkirWeb.UserRegistrationController do
 
   def new(conn, _params) do
     changeset = Accounts.change_user_registration(%User{})
+
     render(conn, "new.html", changeset: changeset)
   end
 

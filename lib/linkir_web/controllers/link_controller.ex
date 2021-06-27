@@ -13,11 +13,13 @@ defmodule LinkirWeb.LinkController do
   def index(conn, _params) do
     user = conn.assigns.current_user
     links = Links.list_links_by_user(user)
+
     render(conn, "index.html", links: links)
   end
 
   def new(conn, _params) do
     changeset = Links.change_link(%Link{})
+
     render(conn, "new.html", changeset: changeset)
   end
 
@@ -37,6 +39,7 @@ defmodule LinkirWeb.LinkController do
 
   def show(conn, %{"id" => id}) do
     link = Links.get_link!(id)
+
     render(conn, "show.html", link: link)
   end
 
