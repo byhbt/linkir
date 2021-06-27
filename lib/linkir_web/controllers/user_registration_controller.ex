@@ -6,7 +6,7 @@ defmodule LinkirWeb.UserRegistrationController do
   use LinkirWeb, :controller
 
   alias Linkir.Accounts
-  alias Linkir.Accounts.User
+  alias Linkir.Accounts.Schemas.User
   alias LinkirWeb.UserAuth
 
   def new(conn, _params) do

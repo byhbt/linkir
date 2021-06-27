@@ -19,7 +19,7 @@ defmodule Linkir.Accounts.UserToken do
     field :token, :binary
     field :context, :string
     field :sent_to, :string
-    belongs_to :user, Linkir.Accounts.User
+    belongs_to :user, Linkir.Accounts.Schemas.User
 
     timestamps(updated_at: false)
   end
