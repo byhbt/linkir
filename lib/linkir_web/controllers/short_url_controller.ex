@@ -8,7 +8,7 @@ defmodule LinkirWeb.ShortUrlController do
   use LinkirWeb, :controller
 
   alias Linkir.Links
-  alias Linkir.Links.Link
+  alias Linkir.Links.Schemas.Link
 
   def show(conn, %{"short_uri" => short_uri}) do
     case Links.get_link_by_uri!(short_uri) do

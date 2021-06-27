@@ -4,9 +4,9 @@ defmodule Linkir.Features.FrontPageTest do
 
   import Wallaby.Query
 
-  feature "users can create an account", %{session: session} do
+  feature "users can see the index page", %{session: session} do
     session
     |> visit("/")
-    |> assert_has(css(".title-font", text: "Welcome to Phoenix!"))
+    |> assert_has(css(".text-xl", text: "Linkir"))
   end
 end

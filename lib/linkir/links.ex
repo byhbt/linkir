@@ -6,7 +6,7 @@ defmodule Linkir.Links do
   import Ecto.Query, warn: false
 
   alias Linkir.Accounts.Schemas.User
-  alias Linkir.Links.Link
+  alias Linkir.Links.Schemas.Link
   alias Linkir.Repo
 
   @doc """

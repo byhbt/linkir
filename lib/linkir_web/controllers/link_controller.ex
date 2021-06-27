@@ -8,7 +8,7 @@ defmodule LinkirWeb.LinkController do
   use LinkirWeb, :controller
 
   alias Linkir.Links
-  alias Linkir.Links.Link
+  alias Linkir.Links.Schemas.Link
 
   def index(conn, _params) do
     user = conn.assigns.current_user

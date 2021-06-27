@@ -1,4 +1,4 @@
-defmodule Linkir.Links.Link do
+defmodule Linkir.Links.Schemas.Link do
   @moduledoc false
 
   use Ecto.Schema

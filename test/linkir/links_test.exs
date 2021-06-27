@@ -4,7 +4,7 @@ defmodule Linkir.LinksTest do
   alias Linkir.Links
 
   describe "links" do
-    alias Linkir.Links.Link
+    alias Linkir.Links.Schemas.Link
 
     @valid_attrs %{
       click_count: 42,
