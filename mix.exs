@@ -45,9 +45,11 @@ defmodule Linkir.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      # Additional packages
 
-      # Wallaby for fetaure tests. NOTE! Requires chromedriver
+      # Additional packages
+      {:ecto_fields, "~> 1.3"},
+
+      # Wallaby for feature tests. NOTE! Requires chromedriver
       {:wallaby, "~> 0.28.0", runtime: false, only: :test},
 
       # Oban for background jobs
