@@ -1,30 +1,26 @@
-<h1 class="page-title">Show Link</h1>
+<h1 class="page-title">Link details</h1>
 
-<ul>
+<div class="mt-4">
+  <strong>Full url:</strong>
+  <%= link @link.full_url, to: Routes.link_path(@conn, :index) %>
+</div>
 
-  <li>
-    <strong>Full url:</strong>
-    <%= @link.full_url %>
-  </li>
+<div class="mt-4">
+  <strong>Short url:</strong>
+  <%= @link.short_url %>
+</div>
 
-  <li>
-    <strong>Short url:</strong>
-    <%= @link.short_url %>
-  </li>
+<div class="mt-4">
+  <strong>Click count:</strong>
+  <%= @link.click_count %>
+</div>
 
-  <li>
-    <strong>Click count:</strong>
-    <%= @link.click_count %>
-  </li>
+<div class="mt-4">
+  <strong>Content:</strong>
+  <%= @link.content %>
+</div>
 
-  <li>
-    <strong>Content:</strong>
-    <%= @link.content %>
-  </li>
-
-</ul>
-
-<div>
+<div class="mt-4">
   <span><%= link "Edit", to: Routes.link_path(@conn, :edit, @link), class: "btn btn-primary" %></span>
   <span><%= link "Back", to: Routes.link_path(@conn, :index), class: "btn btn-secondary" %></span>
 </div>

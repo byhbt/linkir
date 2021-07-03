@@ -34,10 +34,12 @@ config :linkir, Oban,
   queues: [default: 10, mailers: 20, events: 50, low: 5],
   plugins: [
     Oban.Plugins.Pruner,
-    {Oban.Plugins.Cron,
+    {
+      Oban.Plugins.Cron,
      crontab: [
-       #  {"0 8 * * *", Zerg.Workers.ExampleWorker},
-     ]}
+       {"* * * * *", Linkir.Workers.GetPriceWorker},
+     ]
+    }
   ]
 
 # Import environment specific config. This must remain at the bottom
