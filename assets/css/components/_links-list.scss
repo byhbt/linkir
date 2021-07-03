@@ -1,0 +1,7 @@
+.links-list {
+  @apply flex flex-col;
+
+  .action-item {
+    @apply px-2;
+  }
+}

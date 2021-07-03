@@ -31,6 +31,7 @@
 
     <div class="form-row">
       <%= submit "Save", class: "btn btn-primary" %>
+      <%= link "Back", to: Routes.link_path(@conn, :index), class: "btn btn-secondary" %>
     </div>
   <% end %>
 </div>

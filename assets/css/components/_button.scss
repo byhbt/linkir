@@ -3,14 +3,10 @@
   @apply rounded border border-transparent focus:outline-none;
 
   &.btn-primary {
-    @apply text-white bg-blue-500 py-2 px-6 hover:bg-blue-600 text-lg;
+    @apply text-white bg-blue-500 py-2 px-6 hover:bg-blue-600;
   }
 
   &.btn-secondary {
     @apply text-gray-100 bg-gray-600 py-2 px-6 hover:bg-gray-500;
   }
-}
-
-.action-item {
-  @apply px-2;
 }
