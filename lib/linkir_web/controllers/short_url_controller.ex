@@ -21,4 +21,16 @@ defmodule LinkirWeb.ShortUrlController do
         |> redirect(external: full_url)
     end
   end
+
+  def crawl(conn, %{"id" => link_id}) do
+    case Links.fetch_price(link_id) do
+      nil ->
+        IO.puts("Not found")
+
+      {:ok, link} ->
+        conn
+        |> put_flash(:info, "Link crawler created successfully.")
+        |> redirect(to: Routes.link_path(conn, :show, link))
+    end
+  end
 end

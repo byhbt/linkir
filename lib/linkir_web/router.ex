@@ -77,6 +77,7 @@ defmodule LinkirWeb.Router do
     get "/", PageController, :index
 
     get "/:short_uri", ShortUrlController, :show
+    get "/crawl/:id", ShortUrlController, :crawl
 
     delete "/users/log_out", UserSessionController, :delete
     get "/users/confirm", UserConfirmationController, :new

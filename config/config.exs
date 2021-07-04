@@ -37,7 +37,7 @@ config :linkir, Oban,
     {
       Oban.Plugins.Cron,
       crontab: [
-        {"* * * * *", Linkir.Workers.GetPriceWorker}
+#        {"* * * * *", Linkir.Workers.GetPriceWorker}
       ]
     }
   ]

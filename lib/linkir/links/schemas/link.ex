@@ -1,6 +1,8 @@
 defmodule Linkir.Links.Schemas.Link do
   @moduledoc false
 
+  alias Linkir.Links.Schemas.LinkDetails
+
   use Ecto.Schema
 
   import Ecto.Changeset
@@ -11,6 +13,8 @@ defmodule Linkir.Links.Schemas.Link do
     field :full_url, :string
     field :short_url, :string
     field :user_id, :integer
+
+    has_many :link_details, LinkDetails
 
     timestamps()
   end

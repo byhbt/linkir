@@ -7,6 +7,7 @@ defmodule Linkir.Links do
 
   alias Linkir.Accounts.Schemas.User
   alias Linkir.Links.Schemas.Link
+  alias Linkir.Links.Schemas.LinkDetails
   alias Linkir.Repo
 
   @doc """
@@ -54,7 +55,11 @@ defmodule Linkir.Links do
       ** (Ecto.NoResultsError)
 
   """
-  def get_link!(id), do: Repo.get!(Link, id)
+  def get_link!(id) do
+    Link
+    |> preload(:link_details)
+    |> Repo.get!(id)
+  end
 
   @doc """
   Gets a single link.
@@ -139,5 +144,42 @@ defmodule Linkir.Links do
   """
   def change_link(%Link{} = link, attrs \\ %{}) do
     Link.changeset(link, attrs)
+  end
+
+  def fetch_price(id) do
+    link = get_link!(id)
+
+    {:ok, response} = crawl(link.full_url)
+    {:ok, price, json_response} = get_price(response.body)
+
+
+    link_details = %{
+      price: price,
+      raw_response: json_response
+    }
+
+    link_details
+    |> LinkDetails.changeset
+    |> Repo.insert
+
+#    %{link_id: 1}
+#    |> Linkir.Workers.GetPriceWorker.new()
+#    |> Oban.insert()
+
+    {:ok, link}
+  end
+
+  defp crawl(_link) do
+    user_agent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0)"
+    headers = ["Accept": "Application/json; Charset=utf-8"]
+    options = [{"User-agent", user_agent}]
+
+    HTTPoison.get("https://tiki.vn/api/v2/products/73640088", headers, options)
+  end
+
+  defp get_price(json_response) do
+    decoded_json = Jason.decode!(json_response)
+
+    {:ok,  decoded_json["list_price"], json_response}
   end
 end

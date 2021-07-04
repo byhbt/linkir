@@ -21,7 +21,12 @@
 </div>
 
 <div class="mt-4">
-  <span><%= link "Crawl", to: Routes.link_path(@conn, :edit, @link), class: "btn btn-primary" %></span>
+  <span><%= link "Crawl", to: Routes.short_url_path(@conn, :crawl, @link), class: "btn btn-primary" %></span>
   <span><%= link "Edit", to: Routes.link_path(@conn, :edit, @link), class: "btn btn-primary" %></span>
   <span><%= link "Back", to: Routes.link_path(@conn, :index), class: "btn btn-secondary" %></span>
 </div>
+
+<h2>Price history</h2>
+<%= for detail <- @link.link_details do %>
+  <p>Price: <%= detail.price |> :erlang.float_to_binary([:compact, decimals: 2]) %> - at <%= detail.crawled_at %> </p>
+<% end %>
