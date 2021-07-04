@@ -16,9 +16,9 @@ defmodule Linkir.Links.Schemas.LinkDetails do
   end
 
   @doc false
-  def changeset(link_details \\ %__MODULE__{}, attrs) do
+  def create_changeset(link_details \\ %__MODULE__{}, attrs) do
     link_details
-    |> cast(attrs, [:price, :raw_response, :link_id, :crawled_at])
+    |> cast(attrs, [:price, :raw_response, :crawled_at, :link_id])
     |> validate_required([:price, :raw_response, :link_id, :crawled_at])
     |> assoc_constraint(:link)
   end

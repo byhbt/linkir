@@ -8,6 +8,7 @@ defmodule Linkir.Links do
   alias Linkir.Accounts.Schemas.User
   alias Linkir.Links.Schemas.Link
   alias Linkir.Links.Schemas.LinkDetails
+  alias Linkir.Workers.GetPriceWorker
   alias Linkir.Repo
 
   @doc """
@@ -117,6 +118,12 @@ defmodule Linkir.Links do
     |> Repo.update()
   end
 
+  def add_crawl_result(%LinkDetails{} = link_details, attrs) do
+    %LinkDetails{}
+    |> LinkDetails.create_changeset(link_details, attrs)
+    |> Repo.insert()
+  end
+
   @doc """
   Deletes a link.
 
@@ -149,24 +156,9 @@ defmodule Linkir.Links do
   def fetch_price(id) do
     link = get_link!(id)
 
-    {:ok, response} = crawl(link.full_url)
-    {:ok, price, json_response} = get_price(response.body)
-
-
-    link_details = %{
-      price: price,
-      raw_response: json_response,
-      link_id: link.id,
-      crawled_at: NaiveDateTime.utc_now()
-    }
-
-    link_details
-    |> LinkDetails.changeset
-    |> Repo.insert
-
-#    %{link_id: 1}
-#    |> Linkir.Workers.GetPriceWorker.new()
-#    |> Oban.insert()
+    %{link_id: link.id}
+    |> GetPriceWorker.new()
+    |> Oban.insert()
 
     {:ok, link}
   end
@@ -182,6 +174,6 @@ defmodule Linkir.Links do
   defp get_price(json_response) do
     decoded_json = Jason.decode!(json_response)
 
-    {:ok,  decoded_json["price"], json_response}
+    {:ok, decoded_json["price"], json_response}
   end
 end
