@@ -1,8 +1,8 @@
 <%= if @current_user do %>
-  <%= @current_user.email %>
-  <%= link "Settings", to: Routes.user_settings_path(@conn, :edit), class: "px-3" %>
-  <%= link "Log out", to: Routes.user_session_path(@conn, :delete), class: "px-3", method: :delete %>
+  <li class="nav-item"><a class="nav-link"><%= @current_user.email %></a></li>
+  <li class="nav-item"><%= link "Settings", to: Routes.user_settings_path(@conn, :edit), class: "nav-link" %></li>
+  <li class="nav-item"><%= link "Log out", to: Routes.user_session_path(@conn, :delete), class: "nav-link", method: :delete %></li>
 <% else %>
-  <%= link "Register", to: Routes.user_registration_path(@conn, :new), class: "px-3" %>
-  <%= link "Log in", to: Routes.user_session_path(@conn, :new), class: "px-3" %>
+  <li class="nav-item"><%= link "Register", to: Routes.user_registration_path(@conn, :new), class: "nav-link" %></li>
+  <li class="nav-item"><%= link "Log in", to: Routes.user_session_path(@conn, :new), class: "nav-link" %></li>
 <% end %>

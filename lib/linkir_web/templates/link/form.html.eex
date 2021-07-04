@@ -1,37 +1,33 @@
-<div class="grid grid-cols-1 gap-6">
-  <%= form_for @changeset, @action, fn f -> %>
-    <%= if @changeset.action do %>
-      <div class="alert alert-danger">
-        <p>Oops, something went wrong! Please check the errors below.</p>
-      </div>
-    <% end %>
-
-    <div class="form-row">
-      <%= label f, :full_url, class: "form-label" %>
-      <%= text_input f, :full_url, class: "form-control" %>
-      <%= error_tag f, :full_url %>
-    </div>
-
-    <div class="form-row">
-      <%= label f, :short_url, class: "form-label" %>
-      <div class="w-1/2">
-        <%= text_input f, :domain, class: "form-control", placeholder: LinkirWeb.Endpoint.url() <> "/", disabled: true %>
-      </div>
-      <div class="w-1/2">
-        <%= text_input f, :short_url, class: "form-control" %>
-      </div>
-      <%= error_tag f, :short_url %>
-    </div>
-
-    <div class="form-row">
-      <%= label f, :content, class: "form-label" %>
-      <%= textarea f, :content, class: "form-control" %>
-      <%= error_tag f, :content %>
-    </div>
-
-    <div class="form-row">
-      <%= submit "Save", class: "btn btn-primary" %>
-      <%= link "Back", to: Routes.link_path(@conn, :index), class: "btn btn-secondary" %>
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
-</div>
+
+  <div class="form-row mb-3">
+    <%= label f, :full_url, class: "form-label" %>
+    <%= text_input f, :full_url, class: "form-control" %>
+    <%= error_tag f, :full_url %>
+  </div>
+
+  <div class="form-row mb-3">
+    <%= label f, :short_url, class: "form-label" %>
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1"><%= LinkirWeb.Endpoint.url() <> "/" %></span>
+      <%= text_input f, :short_url, class: "form-control" %>
+      <%= error_tag f, :short_url %>
+    </div>
+  </div>
+
+  <div class="form-row mb-3">
+    <%= label f, :content, class: "form-label" %>
+    <%= textarea f, :content, class: "form-control" %>
+    <%= error_tag f, :content %>
+  </div>
+
+  <div class="form-row">
+    <%= submit "Save", class: "btn btn-primary" %>
+    <%= link "Back", to: Routes.link_path(@conn, :index), class: "btn btn-secondary" %>
+  </div>
+<% end %>

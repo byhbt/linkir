@@ -1,9 +1,1 @@
-@tailwind base;
-@tailwind components;
-@tailwind form;
-@tailwind utilities;
-@tailwind typography;
-@tailwind table;
-
-@import 'components/*';
-@import "typography";
+@import "~bootstrap/scss/bootstrap";

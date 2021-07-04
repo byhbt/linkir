@@ -5,12 +5,10 @@ defmodule Linkir.Accounts do
 
   import Ecto.Query, warn: false
 
+  alias Linkir.Accounts.Schemas.User
   alias Linkir.Accounts.UserNotifier
   alias Linkir.Accounts.UserToken
-  alias Linkir.Accounts.Schemas.User
   alias Linkir.Repo
-
-  ## Database getters
 
   @doc """
   Gets a user by email.

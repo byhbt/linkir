@@ -36,9 +36,9 @@ config :linkir, Oban,
     Oban.Plugins.Pruner,
     {
       Oban.Plugins.Cron,
-     crontab: [
-       {"* * * * *", Linkir.Workers.GetPriceWorker},
-     ]
+      crontab: [
+        {"* * * * *", Linkir.Workers.GetPriceWorker}
+      ]
     }
   ]
 
