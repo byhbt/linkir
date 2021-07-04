@@ -155,7 +155,9 @@ defmodule Linkir.Links do
 
     link_details = %{
       price: price,
-      raw_response: json_response
+      raw_response: json_response,
+      link_id: link.id,
+      crawled_at: NaiveDateTime.utc_now()
     }
 
     link_details
@@ -174,12 +176,12 @@ defmodule Linkir.Links do
     headers = ["Accept": "Application/json; Charset=utf-8"]
     options = [{"User-agent", user_agent}]
 
-    HTTPoison.get("https://tiki.vn/api/v2/products/73640088", headers, options)
+    HTTPoison.get("https://tiki.vn/api/v2/products/72188405/info?platform=web", headers, options)
   end
 
   defp get_price(json_response) do
     decoded_json = Jason.decode!(json_response)
 
-    {:ok,  decoded_json["list_price"], json_response}
+    {:ok,  decoded_json["price"], json_response}
   end
 end

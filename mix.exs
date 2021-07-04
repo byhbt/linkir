@@ -49,6 +49,7 @@ defmodule Linkir.MixProject do
       # Additional packages
       {:ecto_fields, "~> 1.3"},
       {:httpoison, "~> 1.7"},
+      {:money, "~> 1.4"},
 
       # Wallaby for feature tests. NOTE! Requires chromedriver
       {:wallaby, "~> 0.28.0", runtime: false, only: :test},

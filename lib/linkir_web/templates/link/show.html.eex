@@ -28,5 +28,5 @@
 
 <h2>Price history</h2>
 <%= for detail <- @link.link_details do %>
-  <p>Price: <%= detail.price |> :erlang.float_to_binary([:compact, decimals: 2]) %> - at <%= detail.crawled_at %> </p>
+  <p>Price: <%= money(detail) %> - at <%= detail.crawled_at %> </p>
 <% end %>
