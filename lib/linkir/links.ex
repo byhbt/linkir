@@ -119,8 +119,8 @@ defmodule Linkir.Links do
   end
 
   def add_crawl_result(%LinkDetails{} = link_details, attrs) do
-    %LinkDetails{}
-    |> LinkDetails.create_changeset(link_details, attrs)
+    link_details
+    |> LinkDetails.create_changeset(attrs)
     |> Repo.insert()
   end
 

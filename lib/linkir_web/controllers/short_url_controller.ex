@@ -24,9 +24,6 @@ defmodule LinkirWeb.ShortUrlController do
 
   def crawl(conn, %{"id" => link_id}) do
     case Links.fetch_price(link_id) do
-      nil ->
-        IO.puts("Not found")
-
       {:ok, link} ->
         conn
         |> put_flash(:info, "Link crawler created successfully.")
