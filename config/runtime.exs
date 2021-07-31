@@ -9,7 +9,7 @@ import Config
 
 if config_env() == :prod do
   config :linkir, Linkir.Repo,
-    # ssl: true,
+    ssl: true,
     url: System.fetch_env!("DATABASE_URL"),
     pool_size: String.to_integer(System.fetch_env!("DATABASE_POOL_SIZE"))
 

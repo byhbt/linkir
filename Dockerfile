@@ -46,8 +46,10 @@ RUN addgroup -S app_group && \
 
 COPY --from=build --chown=app_user:app_group /app/_build/prod/rel/linkir ./
 
+COPY bin/start.sh ./bin/start.sh
+
 ENV HOME=/app
 
 USER app_user
 
-CMD ["sh", "-c", "/app/bin/linkir start"]
+CMD bin/start.sh
