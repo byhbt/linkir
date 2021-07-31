@@ -37,6 +37,7 @@ FROM alpine:3.12.1 AS app
 RUN apk add --no-cache openssl ncurses-libs
 
 WORKDIR /app
+
 EXPOSE 4000
 
 # Setup non-root user
@@ -48,8 +49,13 @@ COPY --from=build --chown=app_user:app_group /app/_build/prod/rel/linkir ./
 
 COPY bin/start.sh ./bin/start.sh
 
+RUN chmod +x ./bin/start.sh
+
 ENV HOME=/app
 
 USER app_user
 
 CMD bin/start.sh
+
+# CMD ["sh", "-c", "/app/bin/linkir start"]
+
