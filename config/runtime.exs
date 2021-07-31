@@ -11,17 +11,14 @@ if config_env() == :prod do
   config :linkir, Linkir.Repo,
     ssl: true,
     url: System.fetch_env!("DATABASE_URL"),
-    pool_size: String.to_integer(System.fetch_env!("DATABASE_POOL_SIZE"))
+    pool_size: String.to_integer(System.fetch_env!("DATABASE_POOL_SIZE")),
+    disconnect_on_error_codes: [:read_only_sql_transaction]
 
   config :linkir, LinkirWeb.Endpoint,
-    http: [
-      # Enable IPv6 and bind on all interfaces.
-      # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
-      # See the documentation on https://hexdocs.pm/plug_cowboy/Plug.Cowboy.html
-      # for details about using IPv6 vs IPv4 and loopback vs public addresses.
-      ip: {0, 0, 0, 0, 0, 0, 0, 0},
-      port: String.to_integer(System.get_env("PORT") || "4000")
+    http: [port: String.to_integer(System.fetch_env!("PORT"))],
+    url: [
+      host: System.fetch_env!("HOST"),
+      port: String.to_integer(System.fetch_env!("PORT"))
     ],
     secret_key_base: System.fetch_env!("SECRET_KEY_BASE")
-
 end
