@@ -15,9 +15,7 @@ if config_env() == :prod do
     disconnect_on_error_codes: [:read_only_sql_transaction]
 
   config :linkir, LinkirWeb.Endpoint,
-    http: [port: String.to_integer(System.fetch_env!("PORT"))],
-    url: [
-      host: System.fetch_env!("HOST"),
+    http: [
       port: String.to_integer(System.fetch_env!("PORT"))
     ],
     secret_key_base: System.fetch_env!("SECRET_KEY_BASE")

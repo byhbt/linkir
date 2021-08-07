@@ -20,7 +20,8 @@ defmodule Linkir.MixProject do
   def application do
     [
       mod: {Linkir.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools],
+      :edeliver
     ]
   end
 
@@ -65,7 +66,9 @@ defmodule Linkir.MixProject do
       {:bcrypt_elixir, "~> 2.0"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.8", only: :dev},
-      {:ecto_psql_extras, "~> 0.2"}
+      {:ecto_psql_extras, "~> 0.2"},
+      {:edeliver, "~> 1.8"},
+      {:distillery, "~> 2.1"}
     ]
   end
 
