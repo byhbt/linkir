@@ -9,7 +9,7 @@ import Config
 
 if config_env() == :prod do
   config :linkir, Linkir.Repo,
-    ssl: true,
+    ssl: false,
     url: System.fetch_env!("DATABASE_URL"),
     pool_size: String.to_integer(System.fetch_env!("DATABASE_POOL_SIZE")),
     disconnect_on_error_codes: [:read_only_sql_transaction]
@@ -18,5 +18,9 @@ if config_env() == :prod do
     http: [
       port: String.to_integer(System.fetch_env!("PORT"))
     ],
+    url: [host: System.fetch_env!("APP_URL"), port: System.fetch_env!("PORT")],
+    cache_static_manifest: "priv/static/manifest.json",
+    server: true,
+    code_reloader: false,
     secret_key_base: System.fetch_env!("SECRET_KEY_BASE")
 end

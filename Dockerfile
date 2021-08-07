@@ -38,15 +38,7 @@ RUN apk add --no-cache openssl ncurses-libs
 
 WORKDIR /app
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 EXPOSE 4000
-=======
-EXPOSE 8080
->>>>>>> c9134f4 (Update Dockerfile run app command)
-=======
-EXPOSE 4000
->>>>>>> 4f71969 (Setting up edeliver)
 
 # Setup non-root user
 RUN addgroup -S app_group && \
