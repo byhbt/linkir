@@ -11,6 +11,6 @@ msgid ""
 msgstr ""
 
 #, elixir-format
-#: lib/linkir_web/templates/layout/app.html.eex:47
-msgid "About Us"
+#: lib/linkir_web/live/page_live.html.leex:2
+msgid "Welcome to %{name}!"
 msgstr ""

@@ -14,3 +14,8 @@ msgstr ""
 #: lib/linkir_web/templates/layout/app.html.eex:39
 msgid "Introduction"
 msgstr ""
+
+#, elixir-format
+#: lib/linkir_web/templates/layout/app.html.eex:40
+msgid "Add a new phrase"
+msgstr ""
