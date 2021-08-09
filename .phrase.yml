@@ -8,6 +8,7 @@ phrase:
         file_format: gettext
   pull:
     targets:
-    - file: ./<locale_name>.po
+    - file: ./priv/gettext/<locale_code>/LC_MESSAGES/<tag>.po
       params:
-        file_format: gettext
+        include_empty_translations: true
+        tags: buton
