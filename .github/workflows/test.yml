@@ -3,12 +3,8 @@ name: "CI Tests"
 on:
   push:
     branches:
+      - main
       - develop
-  pull_request:
-    branches:
-      - develop
-  paths-ignore:
-    - '**/README.md'
 
 env:
   MIX_ENV: test
