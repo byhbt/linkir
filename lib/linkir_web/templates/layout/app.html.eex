@@ -36,12 +36,14 @@
     </header>
 
     <div class="container">
+      <h2><%= dgettext("header", "Introduction") %></h2>
+      <button class="btn btn-primary"><%= dgettext("button", "Lunch") %></button>
       <%= @inner_content %>
     </div>
 
-    <footer class="">
-      <div class="">
-        &copyright; <%= DateTime.utc_now.year %> Linkir
+    <footer class="footer">
+      <div class="footer_content">
+        &copyright; <%= DateTime.utc_now.year %> Linkir - <%= dgettext("footer", "About Us") %>
       </div>
     </footer>
   </body>

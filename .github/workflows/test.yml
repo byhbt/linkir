@@ -1,0 +1,46 @@
+name: "CI Tests"
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+  paths-ignore:
+    - '**/README.md'
+
+env:
+  MIX_ENV: test
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Read .tool-versions
+        uses: marocchino/tool-versions-action@v1
+        id: versions
+      - name: Set up Elixir
+        uses: erlef/setup-elixir@v1
+        with:
+          elixir-version: ${{steps.versions.outputs.elixir}}
+          otp-version: ${{ steps.versions.outputs.erlang}}
+      - name: Set up Phraseapp
+        uses: winify-ag/setup-phraseapp@v2
+        with:
+          version: 2.0.12
+      - name: Restore dependencies cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            deps
+            _build
+            priv/plts
+          key: ${{ runner.os }}-mix-v1-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-v1-
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Push the translation
+        run: phrase push --access-token ${{ secrets.PHRASE_APP_ACCESS_TOKEN }}
