@@ -1,0 +1,13 @@
+phrase:
+  access_token: 2eaebab200e648451bc358892c15a3dde4eac07ebba8a888131db4173396f9ad
+  project_id: 0fd84d97bab017e954fbb2236fd6b855
+  push:
+    sources:
+    - file: priv/gettext/en/LC_MESSAGES/*.po
+      params:
+        file_format: gettext
+  pull:
+    targets:
+    - file: ./<locale_name>.po
+      params:
+        file_format: gettext
