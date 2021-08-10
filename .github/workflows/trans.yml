@@ -1,6 +1,9 @@
 name: "Translation"
 
-on: pull_request
+on:
+ push:
+    branches:
+      - main
 
 env:
   MIX_ENV: test
