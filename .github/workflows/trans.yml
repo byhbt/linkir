@@ -1,0 +1,24 @@
+name: "Trans"
+
+on: pull_request
+
+env:
+  MIX_ENV: test
+  PHRASEAPP_CLI_VERSION: "2.2.0"
+
+jobs:
+  build:
+    name: Push data to Phrase
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Push the translation to Phraseapp
+        uses: winify-ag/setup-phraseapp@v2
+        with:
+          version: ${{ env.PHRASEAPP_CLI_VERSION }}
+        if: github.event.pull_request.merged == true
+        run:
+          phrase push --access_token ${{ secrets.PHRASE_APP_ACCESS_TOKEN }}
