@@ -1,10 +1,6 @@
-name: "CI Tests"
+name: "Translation"
 
-on:
-  push:
-    branches:
-      - main
-      - develop
+on: pull_request
 
 env:
   MIX_ENV: test
@@ -22,10 +18,8 @@ jobs:
       - name: Set up Phraseapp
         uses: winify-ag/setup-phraseapp@v2
         with:
-          version: 2.0.12
-      - name: Push the translation to Phraseapp
-        with:
           version: ${{ env.PHRASEAPP_CLI_VERSION }}
+      - name: Push the translation to Phraseapp
         if: github.event.pull_request.merged == true
         run:
           phrase push --access_token ${{ secrets.PHRASE_APP_ACCESS_TOKEN }}
