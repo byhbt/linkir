@@ -19,3 +19,8 @@ msgstr ""
 #: lib/linkir_web/templates/layout/app.html.eex:40
 msgid "Add a new phrase"
 msgstr ""
+
+#, elixir-format
+#: lib/linkir_web/templates/layout/app.html.eex:41
+msgid "Test separate job"
+msgstr ""
