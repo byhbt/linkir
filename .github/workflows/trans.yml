@@ -23,6 +23,6 @@ jobs:
         with:
           version: ${{ env.PHRASEAPP_CLI_VERSION }}
       - name: Push the translation to Phraseapp
-        if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+        if: github.event.action == 'closed' && github.event.pull_request.merged == true
         run:
           phrase push --access_token ${{ secrets.PHRASE_APP_ACCESS_TOKEN }}
