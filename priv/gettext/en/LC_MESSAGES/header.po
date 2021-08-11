@@ -23,5 +23,5 @@ msgstr ""
 
 #, elixir-format, fuzzy
 #: lib/linkir_web/templates/layout/app.html.eex:41
-msgid "A new text 9"
+msgid "A new text ten"
 msgstr ""

@@ -22,9 +22,5 @@ msgstr ""
 
 #, elixir-format
 #: lib/linkir_web/templates/layout/app.html.eex:41
-<<<<<<< HEAD
-msgid "A new text 8"
-=======
-msgid "A new text 9"
->>>>>>> c2b06c7 (Update text 9)
+msgid "A new text ten"
 msgstr ""
