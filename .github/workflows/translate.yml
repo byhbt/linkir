@@ -1,9 +1,11 @@
 name: Push to Phraseapp
 
 on:
- push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["CI Tests"]
+    branches: [main]
+    types:
+      - completed
 
 env:
   PHRASEAPP_CLI_VERSION: "2.2.0"
@@ -11,6 +13,7 @@ env:
 jobs:
   push:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
