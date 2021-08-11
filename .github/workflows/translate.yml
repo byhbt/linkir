@@ -10,9 +10,9 @@ env:
 
 jobs:
   push:
+    if: github.event.action == 'closed' && github.event.pull_request.merged == true
     name: Push the translation to Phraseapp
     runs-on: ubuntu-latest
-    if: github.event.action == 'closed' && github.event.pull_request.merged == true
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
