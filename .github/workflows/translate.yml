@@ -3,15 +3,14 @@ name: "Translation"
 on:
  push:
     branches:
-      - main
+      - develop
 
 env:
-  MIX_ENV: test
   PHRASEAPP_CLI_VERSION: "2.2.0"
 
 jobs:
   build:
-    name: Push data to Phrase
+    name: Push the translation to Phraseapp
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
@@ -22,7 +21,7 @@ jobs:
         uses: winify-ag/setup-phraseapp@v2
         with:
           version: ${{ env.PHRASEAPP_CLI_VERSION }}
-      - name: Push the translation to Phraseapp
+      - name: Push to Phraseapp
         if: github.event.action == 'closed' && github.event.pull_request.merged == true
         run:
           phrase push --access_token ${{ secrets.PHRASE_APP_ACCESS_TOKEN }}
