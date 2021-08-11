@@ -1,4 +1,4 @@
-name: "Translation"
+name: Push to Phraseapp
 
 on:
  push:
@@ -9,19 +9,19 @@ env:
   PHRASEAPP_CLI_VERSION: "2.2.0"
 
 jobs:
-  build:
+  push:
     name: Push the translation to Phraseapp
     runs-on: ubuntu-latest
+    if: github.event.action == 'closed' && github.event.pull_request.merged == true
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
-      - name: Set up Phraseapp
+      - name: Set up Phrase CLI
         uses: winify-ag/setup-phraseapp@v2
         with:
           version: ${{ env.PHRASEAPP_CLI_VERSION }}
-      - name: Push to Phraseapp
-        if: github.event.action == 'closed' && github.event.pull_request.merged == true
+      - name: Push translation to Phrase.com
         run:
           phrase push --access_token ${{ secrets.PHRASE_APP_ACCESS_TOKEN }}
