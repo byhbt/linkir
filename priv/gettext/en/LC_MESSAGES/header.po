@@ -18,30 +18,5 @@ msgstr ""
 
 #, elixir-format
 #: lib/linkir_web/templates/layout/app.html.eex:40
-msgid "Add a new phrase"
-msgstr ""
-
-#, elixir-format
-#: lib/linkir_web/templates/layout/app.html.eex:41
-msgid "Test separate job"
-msgstr ""
-
-#, elixir-format
-#: lib/linkir_web/templates/layout/app.html.eex:42
-msgid "Test separate job 3rd"
-msgstr ""
-
-#, elixir-format
-#: lib/linkir_web/templates/layout/app.html.eex:43
-msgid "Test separate job 4th"
-msgstr ""
-
-#, elixir-format
-#: lib/linkir_web/templates/layout/app.html.eex:44
-msgid "Test separate job 5th"
-msgstr ""
-
-#, elixir-format, fuzzy
-#: lib/linkir_web/templates/layout/app.html.eex:45
-msgid "Test separate job 6th"
+msgid "A new text"
 msgstr ""
