@@ -39,3 +39,8 @@ msgstr ""
 #: lib/linkir_web/templates/layout/app.html.eex:44
 msgid "Test separate job 5th"
 msgstr ""
+
+#, elixir-format
+#: lib/linkir_web/templates/layout/app.html.eex:45
+msgid "Test separate job 6th"
+msgstr ""

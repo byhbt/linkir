@@ -3,7 +3,7 @@ name: "Translation"
 on:
  push:
     branches:
-      - develop
+      - main
 
 env:
   PHRASEAPP_CLI_VERSION: "2.2.0"
