@@ -38,7 +38,7 @@
     <div class="container">
       <h2><%= dgettext("header", "Introduction") %></h2>
       <p><%= dgettext("header", "A new text") %></p>
-      <p><%= dgettext("header", "A new text twelve") %></p>
+      <p><%= dgettext("header", "A new text thirdteen") %></p>
       <button class="btn btn-primary"><%= dgettext("button", "Lunch") %></button>
       <%= @inner_content %>
     </div>
