@@ -42,6 +42,7 @@
       <p><%= dgettext("header", "Test separate job 3rd") %></p>
       <p><%= dgettext("header", "Test separate job 4th") %></p>
       <p><%= dgettext("header", "Test separate job 5th") %></p>
+      <p><%= dgettext("header", "Test separate job 6th") %></p>
       <button class="btn btn-primary"><%= dgettext("button", "Lunch") %></button>
       <%= @inner_content %>
     </div>

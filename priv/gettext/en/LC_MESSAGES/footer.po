@@ -12,6 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2\n"
 
 #, elixir-format
-#: lib/linkir_web/templates/layout/app.html.eex:51
+#: lib/linkir_web/templates/layout/app.html.eex:52
 msgid "About Us"
 msgstr ""
