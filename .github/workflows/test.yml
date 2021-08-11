@@ -23,10 +23,6 @@ jobs:
         with:
           elixir-version: ${{steps.versions.outputs.elixir}}
           otp-version: ${{ steps.versions.outputs.erlang}}
-      - name: Set up Phraseapp
-        uses: winify-ag/setup-phraseapp@v2
-        with:
-          version: 2.0.12
       - name: Restore dependencies cache
         uses: actions/cache@v2
         with:
@@ -38,5 +34,3 @@ jobs:
           restore-keys: ${{ runner.os }}-mix-v1-
       - name: Install dependencies
         run: mix deps.get
-      - name: Push the translation
-        run: phrase push --access_token ${{ secrets.PHRASE_APP_ACCESS_TOKEN }}
