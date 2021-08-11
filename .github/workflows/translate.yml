@@ -11,6 +11,7 @@ env:
 jobs:
   push:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
