@@ -11,6 +11,6 @@ msgid ""
 msgstr ""
 
 #, elixir-format
-#: lib/linkir_web/templates/layout/app.html.eex:46
+#: lib/linkir_web/templates/layout/app.html.eex:41
 msgid "Lunch"
 msgstr ""
