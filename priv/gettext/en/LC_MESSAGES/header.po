@@ -20,3 +20,8 @@ msgstr ""
 #: lib/linkir_web/templates/layout/app.html.eex:40
 msgid "A new text"
 msgstr ""
+
+#, elixir-format, fuzzy
+#: lib/linkir_web/templates/layout/app.html.eex:41
+msgid "A new text 6"
+msgstr ""
